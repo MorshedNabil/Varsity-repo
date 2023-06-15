@@ -1,0 +1,4 @@
+1st co-ordinates (10.00,2.30)
+2nd co-ordinates (3.60,2.50)
+3rd co-ordinates (4.20,3.60)
+Area: 3.58
