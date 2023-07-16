@@ -1,6 +1,6 @@
 #include <iostream>
-#include <array>
 using namespace std;
+
 void selectionSort(int arr[], int n)
 {
     int i, j, minIndex;
