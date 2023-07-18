@@ -24,7 +24,7 @@ void quicksort(int A[], int low, int high)
         while (A[j] > pivot)
             j--;
 
-        if (i < j)
+        if (i <= j)
         {
             temp = A[i];
             A[i] = A[j];
@@ -33,12 +33,18 @@ void quicksort(int A[], int low, int high)
             j--;
         }
     }
+    /// printing the array in every iteration so see the changes in the array
+    for (int i = 0; i < 9; i++)
+    {
+        cout << A[i] << " ";
+    }
+    cout << "\n";
     ///// recursion for 1st and 2nd part of the array
     //// the recursion will be continued until one element remains in the sub arrays
     //// when one element will remain the starting and ending index of the sub arrays will be equal
     if (low != j)
         quicksort(A, low, j); //// left part of the array (left sub array)
-
+    
     if (high != i)
         quicksort(A, i, high); /// right part of the array (right sub array)
 }
@@ -47,9 +53,9 @@ int main()
 {
     int A[] = {1, 12, 5, 26, 7, 14, 3, 7, 2};
     int n = 9;
+    /// before sorting printing the array
     printarray(A, n);
     quicksort(A, 0, n - 1);
-    printarray(A, n);
-
+    
     return 0;
 }

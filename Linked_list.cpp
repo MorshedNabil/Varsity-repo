@@ -4,9 +4,9 @@ using namespace std;
 
 class Node
 {
-    public:
+public:
     int data;
-    Node* next;
+    Node *next;
 
     Node(int val)
     {
@@ -15,19 +15,19 @@ class Node
     }
 };
 
-void add(Node* &tail, int val)
+void add(Node *&tail, int val)
 {
-    Node* temp = new Node(val);
+    Node *temp = new Node(val);
     tail->next = temp;
     tail = temp;
 }
 
-void print(Node* &head)
+void print(Node *&head)
 {
-    Node* temp = head;
+    Node *temp = head;
     int count = 0;
 
-    while(temp != NULL)
+    while (temp != NULL)
     {
         cout << temp->data << " ";
         temp = temp->next;
@@ -37,12 +37,11 @@ void print(Node* &head)
     cout << "Items: " << count << "\n";
 }
 
-
 int main()
 {
-    Node* node1 = new Node(10);
-    Node* head = node1;
-    Node* tail = node1;
+    Node *node1 = new Node(10);
+    Node *head = node1;
+    Node *tail = node1;
 
     add(tail, 12);
     add(tail, 15);

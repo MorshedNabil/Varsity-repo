@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-
 class Node
 {
 public:
@@ -14,8 +13,7 @@ public:
         next = NULL;
     }
 };
-Node *loc = NULL;
-Node *locp = NULL;
+
 void add(Node *&tail, int val)
 {
     Node *temp = new Node(val);
@@ -41,23 +39,25 @@ void print(Node *&head)
 
 void dlt(Node *&loc, Node *&locp, Node *&head, int item)
 {
-    if (loc = NULL)
+    /// loc is the location where the item is available
+    /// locp is the location where the previous item is available
+    if (loc == NULL)
     {
         cout << "Nothing to delete. Linked List is empty.\n";
         return;
     }
     else if (locp == NULL) // to dlt the node if it is at first of the l.l
     {
-        locp->next = head->next;
-        head = locp;
+        head = head->next;
+        return;
     }
     else
     {
-        locp->next = loc->next; /// dlt the node
+        locp->next = loc->next; /// dlt the node(if it was in the middle of the l.l)
     }
 }
 
-void findTheLoc(Node *&head, int item)
+void findTheLoc(Node *&loc, Node *&locp , Node *&head, int item)
 {
 
     if (head == NULL) /// if so item is in the l.l then nothing left to dlt
@@ -88,8 +88,8 @@ void findTheLoc(Node *&head, int item)
             }
             else
             {
-                ptr = ptr->next; /// item didn't found? then go forward of the l.l
                 curr = ptr;
+                ptr = ptr->next; /// item didn't found? then go forward of the l.l     
             }
         }
     }
@@ -102,15 +102,19 @@ int main()
     Node *node1 = new Node(10);
     Node *head = node1;
     Node *tail = node1;
-    
+    Node *loc = NULL;
+    Node *locp = NULL;
 
     add(tail, 12);
     add(tail, 13);
     add(tail, 15);
-
-    findTheLoc(head, 13);
+    //printing the ll before deleting the node
+    print(head);
+    /// find the node where the itemm is
+    findTheLoc(loc, locp, head, 13);
+    //// dlt the given value 
     dlt(loc, locp, head, 13);
-
+    /// print after deleting
     print(head);
 
     return 0;
